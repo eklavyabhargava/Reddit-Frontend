@@ -1,0 +1,19 @@
+.modal-overlay {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%;
+  min-height: 30vh;
+  max-height: 100vh;
+  opacity: 0;
+  z-index: 999999;
+  display: flex;
+  transition: all 0.3s ease, top 0.3s ease;
+}
+
+/* When the modal is open */
+.modal-overlay.open {
+  top: 0;
+  opacity: 1;
+}

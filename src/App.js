@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/HomePage";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { checkAuthStatus } from "./shared/actions";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import CreatePost from "./pages/NewPost";
+import ProtectedRoute from "./components/protectedRoute";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkAuthStatus());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="flex flex-col max-w-full">
+        <Header />
+        <div className="flex flex-row w-full justify-between">
+          <div className="desktop:flex hidden w-[30%]">
+            <Sidebar />
+          </div>
+          <div className="z-[9999] w-full">
+            <Routes>
+              <Route path="/*" element={<Home />} />
+              <Route
+                path="/create-post"
+                element={<ProtectedRoute element={CreatePost} />}
+              />
+            </Routes>
+          </div>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
