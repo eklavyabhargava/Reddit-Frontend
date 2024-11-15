@@ -13,6 +13,7 @@ const CreatePost = () => {
     media: null,
   });
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
   const [disableBtn, setDisableBtn] = useState(true);
   const navigate = useNavigate();
 
@@ -68,6 +69,7 @@ const CreatePost = () => {
     const isValidData = validateData();
     if (!isValidData) return;
 
+    setLoading(true)
     const { title, description, media } = postData;
     const formData = new FormData();
     formData.append("title", title);
@@ -190,11 +192,11 @@ const CreatePost = () => {
               Save Draft
             </button>
             <button
-              disabled={disableBtn}
+              disabled={disableBtn || loading}
               onClick={() => handleCreatePost()}
               className="disabled:bg-bgSecondary bg-btnPrimary hover:bg-btnSecondary py-2 px-3 rounded-full "
             >
-              Post
+              {loading ? "Posting..." : "Post"}
             </button>
           </div>
         </div>
