@@ -139,7 +139,9 @@ const Posts = () => {
 
   return (
     <div className="w-full p-5 desktop:border-x-[1px] desktop:min-h-[100vh] flex flex-col ">
-      {posts?.length ? (
+      {loading ? (
+        <p className="text-xl text-center font-semibold">Loading...</p>
+      ) : posts?.length ? (
         posts.map((post, i) => (
           <div
             key={i}
@@ -223,7 +225,9 @@ const Posts = () => {
           </div>
         ))
       ) : (
-        <p className="text-xl font-semibold">Loading...</p>
+        <p className="text-xl font-semibold text-center">
+          You’ve seen it all! Time to create a post of your own?
+        </p>
       )}
     </div>
   );

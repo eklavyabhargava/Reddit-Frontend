@@ -24,7 +24,7 @@ function App() {
           <div className="desktop:flex hidden w-[30%]">
             <Sidebar />
           </div>
-          <div className="z-[9999] w-full">
+          <div className="z-[999] w-full">
             <Routes>
               <Route path="/*" element={<Home />} />
               <Route

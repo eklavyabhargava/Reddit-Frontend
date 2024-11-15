@@ -3,9 +3,9 @@ const initialState = {
     username: "",
     emailId: "",
   },
-  isUserLoggedIn: false,
+  isUserLoggedIn: true,
   showLoginModal: false,
-  isLoading: true,
+  isLoading: false,
 };
 
 const rootReducer = (state = initialState, action) => {

@@ -3,23 +3,6 @@
   padding-top: 12px;
 }
 
-.menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu li {
-  opacity: 1;
-  z-index: 999;
-  transform: translateY(-30px);
-  animation: fadeInLinks 0.3s ease forwards;
-}
-
-.menu li + li {
-  margin-top: 20px;
-}
-
 /* The full-screen overlay, used for mobile */
 .menu-overlay {
   position: fixed;
@@ -36,7 +19,7 @@
 /* When the menu is open */
 .menu-overlay.open {
   left: 0;
-  z-index: 998;
+  z-index: 9998;
   opacity: 1;
 }
 
@@ -45,7 +28,7 @@
   height: 15px;
   position: relative;
   cursor: pointer;
-  z-index: 999;
+  z-index: 9999;
   flex-direction: column;
   justify-content: space-between;
 }

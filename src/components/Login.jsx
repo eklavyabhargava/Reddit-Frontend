@@ -31,7 +31,6 @@ const Login = ({ showSignup, setBtn, onHide }) => {
   };
 
   const state = useSelector((state) => state);
-  console.log(state);
 
   // handle input changes
   const handleOnChange = ({ name, value }) => {
